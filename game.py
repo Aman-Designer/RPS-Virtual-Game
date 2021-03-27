@@ -28,16 +28,22 @@ def main(status):
 
 while player == False:
 
-    player = input("Choose form Rock, Paper, Scissors?")
-
     print("Tina chose", player)
     print("Computer chose", computer)
+
+    print("Choose from the options or enter q to exit!")
+
+    player = input("Choose form Rock, Paper, Scissors?\n")
+
+    if player == "q":
+        print("You have chosen to quite the game! BYE!")
+        exit()
 
     if player == computer:
         print("Tie! No lives lost!")
     elif player == "Rock":
         if computer == "Paper":
-            print("I thought Tina never looses, but you lost from a computer!", computer, "covers", player,)
+            print("I thought Tina never looses, but you lost from a computer!", computer, "covers", player)
             player_lives -= 1
             print("Player Lives=", player_lives, "Computer Lives=", computer_lives)
         else:
@@ -75,3 +81,4 @@ while player == False:
         main("won")
 
     player = False
+    computer = t[randint(0,2)]
