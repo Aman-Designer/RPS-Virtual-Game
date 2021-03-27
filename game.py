@@ -1,6 +1,6 @@
 from random import randint
 
-t = ["Rock", "Paper", "Scissors"]
+t = ["rock", "paper", "scissors"]
 
 computer = t[randint(0,2)]
 
@@ -54,13 +54,32 @@ while player == False:
 
     if player_lives == 0:
         player = True
-        print("You have faced your defeat")
+        print("You have faced your defeat. Would you like to play again?")
+        choice = input("Y / N?")
+        if choice == "N" or choice == "n":
+            print("You have chose to exit. See you next time!")
+            player = True
+        elif choice == "Y" or choice == "y":
+            print("You have chose to continue, let's see if you win this time!")
+            player_lives = total_lives
+            computer_lives = total_lives
+            player = False
     else:
         player = False
 
     if computer_lives == 0:
             player = True
-            print("The computer was bound to loose")
+            print("The computer was bound to loose. Would you like to play again?")
+            choice = input("Y / N?")
+            if choice == "N" or choice == "n":
+                print("You have chose to exit. See you next time!")
+                player = True
+            elif choice == "Y" or choice == "y":
+                print("You have chose to continue, let's see if you win this time!")
+                player_lives = total_lives
+                computer_lives = total_lives
+                player = False
     else:
         player = False
-    computer = t[randint(0,2)]
+        
+computer = t[randint(0,2)]
