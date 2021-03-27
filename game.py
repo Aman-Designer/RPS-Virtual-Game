@@ -4,28 +4,50 @@ t = ["Rock", "Paper", "Scissors"]
 
 computer = t[randint(0,2)]
 
-computer_lives = 3
-player_lives = 3
-total_lives =3
+computer_lives = 2
+player_lives = 2
+total_lives = 2
 
 player = False
 
-while player == False:
+def main(status):
+    print("You have", status, "would you like to play again?")
+    choice = input("Y / N?")
+    if choice == "N" or choice == "n":
+        print("You have chose to exit. See you next time!")
+        exit()
+    elif choice == "Y" or choice == "y":
+        print("You have chose to continue, let's see if you win this time!")
+        global player_lives
+        global computer_lives
+        global total_lives
+        player_lives = total_lives
+        computer_lives = total_lives
+    else:
+        player = False
 
-    player = input("Choose form Rock, Paper, Scissors?")
+while player == False:
 
     print("Tina chose", player)
     print("Computer chose", computer)
+
+    print("Choose from the options or enter q to exit!")
+
+    player = input("Choose form Rock, Paper, Scissors?\n")
+
+    if player == "q":
+        print("You have chosen to quite the game! BYE!")
+        exit()
 
     if player == computer:
         print("Tie! No lives lost!")
     elif player == "Rock":
         if computer == "Paper":
-            print("I thought Tina never looses, but you lost from a computer!", computer, "covers", player,)
+            print("I thought Tina never looses, but you lost from a computer!", computer, "covers", player)
             player_lives -= 1
             print("Player Lives=", player_lives, "Computer Lives=", computer_lives)
         else:
-            print("Tina wins!", player, "smashes", computer)
+            print("Tina has won the great battel!", player, "smashes", computer)
             computer_lives -= 1
             print("Player Lives=", player_lives, "Computer Lives=", computer_lives)
 
@@ -53,14 +75,10 @@ while player == False:
         print("That's not a valid play. Check your spelling or Punctuation!")
 
     if player_lives == 0:
-        player = True
-        print("You have faced your defeat")
-    else:
-        player = False
+        main("lost")
 
     if computer_lives == 0:
-            player = True
-            print("The computer was bound to loose")
-    else:
-        player = False
+        main("won")
+
+    player = False
     computer = t[randint(0,2)]
