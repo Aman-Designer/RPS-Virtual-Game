@@ -2,7 +2,7 @@
 This is a virtual Rock Paper Scissors game that is created on Python for a project.
 
 ## Project Readme File
-[Link to the Google Doc for Project Roadmap] (https://docs.google.com/document/d/1vRsNGvDDujrkf8rxMKWuESmuqRNteqwHfyryAWNB0SU/edit?usp=sharing)
+[Link to the Google Doc for Project Roadmap](https://docs.google.com/document/d/1vRsNGvDDujrkf8rxMKWuESmuqRNteqwHfyryAWNB0SU/edit?usp=sharing)
 
 ## MIT License
 
