@@ -1,23 +1,6 @@
 from random import randint
 
-from packagesMain import packageInit
-
-def main(status):
-    print("You have", status, "would you like to play again?")
-    choice = input("Y / N?")
-    if choice == "N" or choice == "n":
-        print("You have chose to exit. See you next time!")
-        exit()
-    elif choice == "Y" or choice == "y":
-        print("You have chose to continue, let's see if you win this time!")
-        global player_lives
-        global computer_lives
-        global total_lives
-            
-        packageInit.player_lives = packageInit.total_lives
-        packageInit.computer_lives = packageInit.total_lives
-    else:
-        packageInit.player = False
+from packagesMain import packageInit, functionMain
 
 print("++++++ Welcome to the Legendary Rock Paper Scissors Game ++++++\n")
 
@@ -25,7 +8,7 @@ while packageInit.player == False:
 
     print("****************************************************************")
     print("You have", packageInit.player_lives, "left out of", packageInit.total_lives)
-    print("The computer has", packageInit.computer_lives, "left out of", packageInit.computer_lives)
+    print("The computer has", packageInit.computer_lives, "left out of", packageInit.total_lives)
     print("****************************************************************\n")
     print("Choose from the options or enter q to exit!")
     packageInit.player = input("Rock, Paper, Scissors?\n")
@@ -73,10 +56,10 @@ while packageInit.player == False:
         print("That's not a valid play. Check your spelling or Punctuation!")
 
     if packageInit.player_lives == 0:
-        main("lost")
+        functionMain.main("lost")
 
     if packageInit.computer_lives == 0:
-        main("won")
+        functionMain.main("won")
 
     packageInit.player = False
     computer = packageInit.options[randint(0,2)]
